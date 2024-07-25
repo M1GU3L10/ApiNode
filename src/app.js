@@ -5,6 +5,12 @@ import languageRoutes from "./routes/languaje.routes";
 import usuarioRoutes from "./routes/usuario.routes";
 import citaRoutes from "./routes/cita.routes";
 import rolRoutes from "./routes/rol.routes";
+import programEmpleadoRoutes from "./routes/programEmpleado.routes";
+import ausenciaRoutes from "./routes/ausencia.routes";
+import compraRoutes from "./routes/compra.routes";
+
+
+
 
 
 const app=express();
@@ -20,5 +26,10 @@ app.use("/api/languages",languageRoutes);
 app.use("/api/usuarios",usuarioRoutes);
 app.use("/api/citas",citaRoutes);
 app.use("/api/roles",rolRoutes);
+app.use("/api/programEmpleados",programEmpleadoRoutes);
+app.use("/api/ausencias",ausenciaRoutes);
+app.use("/api/compras",compraRoutes);
+
+
 
 export default app;
