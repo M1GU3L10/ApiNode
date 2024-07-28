@@ -8,6 +8,7 @@ import rolRoutes from "./routes/rol.routes";
 import programEmpleadoRoutes from "./routes/programEmpleado.routes";
 import ausenciaRoutes from "./routes/ausencia.routes";
 import compraRoutes from "./routes/compra.routes";
+import servicioRoutes from "./routes/servicio.routes";
 
 
 
@@ -29,6 +30,7 @@ app.use("/api/roles",rolRoutes);
 app.use("/api/programEmpleados",programEmpleadoRoutes);
 app.use("/api/ausencias",ausenciaRoutes);
 app.use("/api/compras",compraRoutes);
+app.use("/api/servicios",servicioRoutes);
 
 
 
