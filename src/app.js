@@ -9,6 +9,10 @@ import programEmpleadoRoutes from "./routes/programEmpleado.routes";
 import ausenciaRoutes from "./routes/ausencia.routes";
 import compraRoutes from "./routes/compra.routes";
 import servicioRoutes from "./routes/servicio.routes";
+import categoriaRoutes from "./routes/categoria.routes";
+import ventaRoutes from "./routes/venta.routes";
+
+
 
 
 
@@ -31,6 +35,9 @@ app.use("/api/programEmpleados",programEmpleadoRoutes);
 app.use("/api/ausencias",ausenciaRoutes);
 app.use("/api/compras",compraRoutes);
 app.use("/api/servicios",servicioRoutes);
+app.use("/api/categorias",categoriaRoutes);
+app.use("/api/ventas",ventaRoutes);
+
 
 
 
