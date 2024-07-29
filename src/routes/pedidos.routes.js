@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { methods as pedidoController } from "../controllers/pedido.controller";
+import { methods as pedidoController } from "../controllers/pedidos.controller";
 
 const router = Router();
 

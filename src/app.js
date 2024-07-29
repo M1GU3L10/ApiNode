@@ -11,6 +11,9 @@ import compraRoutes from "./routes/compra.routes";
 import servicioRoutes from "./routes/servicio.routes";
 import categoriaRoutes from "./routes/categoria.routes";
 import ventaRoutes from "./routes/venta.routes";
+import productosRoutes from "./routes/productos.routes";
+import pedidosRoutes from "./routes/pedidos.routes";
+import proveedoresRoutes from "./routes/proveedores.routes";
 
 
 
@@ -37,6 +40,9 @@ app.use("/api/compras",compraRoutes);
 app.use("/api/servicios",servicioRoutes);
 app.use("/api/categorias",categoriaRoutes);
 app.use("/api/ventas",ventaRoutes);
+app.use("/api/productos",productosRoutes);
+app.use("/api/pedidos",pedidosRoutes);
+app.use("/api/proveedores",proveedoresRoutes);
 
 
 
