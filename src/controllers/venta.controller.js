@@ -5,6 +5,7 @@ const getVentas = async (req, res) => {
         const connection = await getConnection();
         const result = await connection.query("SELECT id, Numero_factura, Fecha_venta, hora_registro, Montototal, estado, Id_cliente FROM ventas");
         res.json(result);
+
     } catch (error) {
         res.status(500).json({ message: "Error en el servidor: " + error.message });
     }
