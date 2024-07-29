@@ -1,6 +1,6 @@
 import { getConnection } from "../database/database";
 
-const getprogramacion_empleados = async (req, res) => {
+const getProgramming_Employee = async (req, res) => {
     try {
         const connection = await getConnection();
         const result = await connection.query("SELECT Id_programacion, Id_usuario, Hora_inicio, Hora_fin, estado, dia FROM programacion_empleados");
@@ -10,7 +10,7 @@ const getprogramacion_empleados = async (req, res) => {
     }
 };
 
-const getProgram_empleado = async (req, res) => {
+const getProgramming_Employe = async (req, res) => {
     try {
         console.log(req.params);
         const { Id_programacion } = req.params;
@@ -26,7 +26,7 @@ const getProgram_empleado = async (req, res) => {
     }
 };
 
-const addProgram_empleado = async (req, res) => {
+const addProgramming_Employee = async (req, res) => {
     try {
         const { Id_usuario, Hora_inicio, Hora_fin, estado, dia } = req.body;
 
@@ -44,7 +44,7 @@ const addProgram_empleado = async (req, res) => {
     }
 };
 
-const updateProgram_empleado = async (req, res) => {
+const updateProgramming_Employee = async (req, res) => {
     try {
         console.log(req.params);
         const { Id_programacion } = req.params;
@@ -64,7 +64,7 @@ const updateProgram_empleado = async (req, res) => {
     }
 };
 
-const deleteProgram_empleado = async (req, res) => {
+const deleteProgramming_Employee = async (req, res) => {
     try {
         console.log(req.params);
         const { Id_programacion } = req.params;
@@ -81,9 +81,9 @@ const deleteProgram_empleado = async (req, res) => {
 };
 
 export const methods = {
-    getprogramacion_empleados,
-    getProgram_empleado,
-    addProgram_empleado,
-    updateProgram_empleado,
-    deleteProgram_empleado
+    getProgramming_Employee,
+    getProgramming_Employe,
+    addProgramming_Employee,
+    updateProgramming_Employee,
+    deleteProgramming_Employee
 };

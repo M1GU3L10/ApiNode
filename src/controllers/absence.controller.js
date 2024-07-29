@@ -1,6 +1,6 @@
 import { getConnection } from "../database/database";
 
-const getAusencias = async (req, res) => {
+const getAbsences = async (req, res) => {
     try {
         const connection = await getConnection();
         const result = await connection.query("SELECT id_ausencia, fecha, hora_inicio, hora_fin, descripcion, estado, id_usuario FROM ausencias");
@@ -10,7 +10,7 @@ const getAusencias = async (req, res) => {
     }
 };
 
-const getAusencia = async (req, res) => {
+const getAbsence = async (req, res) => {
     try {
         console.log(req.params);
         const { id_ausencia } = req.params;
@@ -26,7 +26,7 @@ const getAusencia = async (req, res) => {
     }
 };
 
-const addAusencia = async (req, res) => {
+const addAbsences = async (req, res) => {
     try {
         const { fecha, hora_inicio, hora_fin, descripcion, estado, id_usuario } = req.body;
 
@@ -44,7 +44,7 @@ const addAusencia = async (req, res) => {
     }
 };
 
-const updateAusencia = async (req, res) => {
+const updateAbsences = async (req, res) => {
     try {
         console.log(req.params);
         const { id_ausencia } = req.params;
@@ -64,7 +64,7 @@ const updateAusencia = async (req, res) => {
     }
 };
 
-const deleteAusencia = async (req, res) => {
+const deleteAbsences = async (req, res) => {
     try {
         console.log(req.params);
         const { id_ausencia } = req.params;
@@ -81,9 +81,9 @@ const deleteAusencia = async (req, res) => {
 };
 
 export const methods = {
-    getAusencias,
-    getAusencia,
-    addAusencia,
-    updateAusencia,
-    deleteAusencia
+    getAbsences,
+    getAbsence,
+    addAbsences,
+    updateAbsences,
+    deleteAbsences
 };
