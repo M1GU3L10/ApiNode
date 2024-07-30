@@ -1,13 +1,16 @@
 import { Router } from "express";
 import {methods as buysController} from "../controllers/buys.controller"
+import { validateBuy, validateId } from "../validations/buys.validation";
+
 
 const router=Router();
 
 router.get("/", buysController.getbuys);
-router.get("/:id", buysController.getbuy);
-router.post("/", buysController.addbuys);
-router.put("/:id", buysController.updatebuys);
-router.delete("/:id", buysController.deletebuys);
+router.get("/:id", validateId,buysController.getbuy);
+router.post("/", validateBuy,buysController.addbuys);
+router.put("/:id", validateId, validateBuy,buysController.updatebuys);
+router.delete("/:id", validateId,buysController.deletebuys);
+
 
 
 export default router;
