@@ -1,13 +1,13 @@
 import express from "express";
 import morgan from "morgan";
 
-import languageRoutes from "./routes/languaje.routes";
+
 import usuarioRoutes from "./routes/usuario.routes";
 import citaRoutes from "./routes/cita.routes";
 import rolRoutes from "./routes/rol.routes";
-import programEmpleadoRoutes from "./routes/programEmpleado.routes";
-import ausenciaRoutes from "./routes/ausencia.routes";
-import compraRoutes from "./routes/compra.routes";
+import programEmpleadoRoutes from "./routes/programming_Employee.routes";
+import ausenciaRoutes from "./routes/absence.routes";
+import compraRoutes from "./routes/buys.routes";
 import servicioRoutes from "./routes/servicio.routes";
 import categoriaRoutes from "./routes/categoria.routes";
 import ventaRoutes from "./routes/venta.routes";
@@ -30,7 +30,7 @@ app.set("port", 4000);
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.use("/api/languages",languageRoutes);
+
 app.use("/api/usuarios",usuarioRoutes);
 app.use("/api/citas",citaRoutes);
 app.use("/api/roles",rolRoutes);
