@@ -58,7 +58,7 @@ const updateAusencia = async (req, res) => {
         const Ausencia = { id_ausencia, fecha, hora_inicio, hora_fin, descripcion, estado, id_usuario };
         const connection = await getConnection();
         const result = await connection.query("UPDATE ausencias SET ? WHERE id_ausencia = ?", [Ausencia, id_ausencia]);
-        res.json({ message: "Ausencia actualizada con éxito", result });
+        res.json({ message: "Ausencia actualizada con éxito" });
     } catch (error) {
         res.status(500).json({ message: "Error en el servidor: " + error.message });
     }
