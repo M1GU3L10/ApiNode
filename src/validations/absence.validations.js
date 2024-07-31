@@ -17,6 +17,10 @@ export const validateAbsence = (req, res, next) => {
     if (hora_inicio >= hora_fin) {
         return res.status(400).json({ message: "Solicitud incorrecta.La hora de fin debe ser mayor que la hora de inicio." });
     }
+    
+    if (!['A', 'I'].includes(estado)) {
+        return res.status(400).json({ message: "El estado debe ser 'A' (activo) o 'I' (inactivo)" });
+    }
 
     next();
 };
