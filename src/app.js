@@ -8,6 +8,8 @@ import programming_EmployeeRoutes from "./routes/programming_Employee.routes";
 import absenceRoutes from "./routes/absence.routes";
 import compraRoutes from "./routes/buys.routes";
 import CategoryRoutes from "./routes/category.routes";
+import shoppingRoutes from "./routes/shopping.routes";
+import serviceRoutes from "./routes/service.routes";
 
 
 
@@ -30,7 +32,8 @@ app.use("/api/programEmpleado",programming_EmployeeRoutes);
 app.use("/api/ausencias",absenceRoutes);
 app.use("/api/compras",compraRoutes);
 app.use("/api/category",CategoryRoutes);
-
+app.use("/api/compras",shoppingRoutes);
+app.use("/api/service",serviceRoutes);
 
 
 export default app;

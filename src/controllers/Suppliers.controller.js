@@ -1,9 +1,9 @@
 import { getConnection } from "../database/database";
 
-const getProveedores = async (req, res) => {
+const getSuppliers = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT id, Nombre_proveedor, Contacto, Estado FROM proveedores");
+        const result = await connection.query("SELECT id, Nombre_proveedor, Contacto, Estado FROM suppliers");
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -11,11 +11,11 @@ const getProveedores = async (req, res) => {
     }
 };
 
-const getProveedor = async (req, res) => {
+const getSupplier = async (req, res) => {
     try {
         const { id } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("SELECT id, Nombre_proveedor, Contacto, Estado FROM proveedores WHERE id = ?", id);
+        const result = await connection.query("SELECT id, Nombre_proveedor, Contacto, Estado FROM suppliers WHERE id = ?", id);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -23,20 +23,20 @@ const getProveedor = async (req, res) => {
     }
 };
 
-const addProveedor = async (req, res) => {
+const addSupplier = async (req, res) => {
     try {
         const { Nombre_proveedor, Contacto, Estado } = req.body;
 
         if (Nombre_proveedor == undefined || Contacto == undefined || Estado == undefined) {
-            res.status(400).json({ message: "Bad request. Please fill all fields." });
+            res.status(400).json({ message: "Solicitud incorrecta. Por favor, complete todos los campos." });
         }
-        const proveedor = {
+        const supplier = {
             Nombre_proveedor,
             Contacto,
             Estado
         };
         const connection = await getConnection();
-        await connection.query("INSERT INTO proveedores SET ?", proveedor);
+        await connection.query("INSERT INTO suppliers SET ?", supplier);
         res.json({ message: "Proveedor agregado" });
     } catch (error) {
         res.status(500);
@@ -44,20 +44,20 @@ const addProveedor = async (req, res) => {
     }
 };
 
-const updateProveedor = async (req, res) => {
+const updateSupplier = async (req, res) => {
     try {
         const { id } = req.params;
         const { Nombre_proveedor, Contacto, Estado } = req.body;
         if (Nombre_proveedor == undefined || Contacto == undefined || Estado == undefined) {
-            res.status(400).json({ message: "Bad request. Please fill all fields." });
+            res.status(400).json({ message: "Solicitud incorrecta. Por favor, complete todos los campos." });
         }
-        const proveedor = {
+        const supplier = {
             Nombre_proveedor,
             Contacto,
             Estado
         };
         const connection = await getConnection();
-        const result = await connection.query("UPDATE proveedores SET ? WHERE id = ?", [proveedor, id]);
+        const result = await connection.query("UPDATE suppliers SET ? WHERE id = ?", [supplier, id]);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -65,11 +65,11 @@ const updateProveedor = async (req, res) => {
     }
 };
 
-const deleteProveedor = async (req, res) => {
+const deleteSupplier = async (req, res) => {
     try {
         const { id } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("DELETE FROM proveedores WHERE id = ?", id);
+        const result = await connection.query("DELETE FROM suppliers WHERE id = ?", id);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -78,9 +78,9 @@ const deleteProveedor = async (req, res) => {
 };
 
 export const methods = {
-    getProveedores,
-    getProveedor,
-    addProveedor,
-    updateProveedor,
-    deleteProveedor,
+    getSuppliers,
+    getSupplier,
+    addSupplier,
+    updateSupplier,
+    deleteSupplier,
 };

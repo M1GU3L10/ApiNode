@@ -1,6 +1,6 @@
 import { getConnection } from "../database/database";
 
-const getbuys = async (req, res) => {
+const getshopping = async (req, res) => {
     try {
         const connection = await getConnection();
         const result = await connection.query("SELECT id, codigo, Fecha_compra, Fecha_registro, Precio_total, estado, Id_Proveedores FROM compras");
@@ -10,7 +10,7 @@ const getbuys = async (req, res) => {
     }
 };
 
-const getbuy = async (req, res) => {
+const getshoppings = async (req, res) => {
     try {
         console.log(req.params);
         const { id } = req.params;
@@ -26,7 +26,7 @@ const getbuy = async (req, res) => {
     }
 };
 
-const addbuys = async (req, res) => {
+const addshopping = async (req, res) => {
     try {
         const { codigo, Fecha_compra, Fecha_registro, Precio_total, estado, Id_Proveedores } = req.body;
 
@@ -44,7 +44,7 @@ const addbuys = async (req, res) => {
     }
 };
 
-const updatebuys = async (req, res) => {
+const updateshopping = async (req, res) => {
     try {
         console.log(req.params);
         const { id } = req.params;
@@ -64,7 +64,7 @@ const updatebuys = async (req, res) => {
     }
 };
 
-const deletebuys = async (req, res) => {
+const deleteshopping = async (req, res) => {
     try {
         console.log(req.params);
         const { id } = req.params;
@@ -81,9 +81,9 @@ const deletebuys = async (req, res) => {
 };
 
 export const methods = {
-    getbuys,
-    getbuy,
-    addbuys,
-    updatebuys,
-    deletebuys
+    getshopping,
+    getshoppings,
+    addshopping,
+    updateshopping,
+    deleteshopping
 };
