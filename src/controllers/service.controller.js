@@ -1,6 +1,6 @@
 import {getConnection} from "../database/database"
 
-const getServicios= async (req, res)=>{
+const getServices= async (req, res)=>{
     try{
         const connection= await getConnection();
         const result = await connection.query("SELECT id, Nombre_servicio, Precio, Estado, Tiempo_estimado FROM servicios");
@@ -12,7 +12,7 @@ const getServicios= async (req, res)=>{
     }
 };
 
-const getServicio= async (req, res)=>{
+const getService= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -26,7 +26,7 @@ const getServicio= async (req, res)=>{
     }
 };
 
-const addServicio= async (req, res) =>{
+const addService= async (req, res) =>{
     try{
         const {Nombre_servicio,Precio,Estado,Tiempo_estimado}=req.body;
 
@@ -47,7 +47,7 @@ const addServicio= async (req, res) =>{
     }
 };
 
-const updateServicio= async (req, res)=>{
+const updateService= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -67,7 +67,7 @@ const updateServicio= async (req, res)=>{
     }
 };
 
-const deleteServicio= async (req, res)=>{
+const deleteService= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -83,9 +83,9 @@ const deleteServicio= async (req, res)=>{
 
 
 export const methods ={
-    getServicios,
-    getServicio,
-    addServicio,
-    updateServicio,
-    deleteServicio,
+    getServices,
+    getService,
+    addService,
+    updateService,
+    deleteService,
 };
