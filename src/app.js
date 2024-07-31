@@ -6,7 +6,7 @@ import citaRoutes from "./routes/cita.routes";
 import rolRoutes from "./routes/rol.routes";
 import programming_EmployeeRoutes from "./routes/programming_Employee.routes";
 import absenceRoutes from "./routes/absence.routes";
-import compraRoutes from "./routes/buys.routes";
+import shoppingRoutes from "./routes/shopping.routes";
 
 
 
@@ -26,7 +26,7 @@ app.use("/api/citas",citaRoutes);
 app.use("/api/roles",rolRoutes);
 app.use("/api/programEmpleado",programming_EmployeeRoutes);
 app.use("/api/ausencias",absenceRoutes);
-app.use("/api/compras",compraRoutes);
+app.use("/api/compras",shoppingRoutes);
 
 
 export default app;
