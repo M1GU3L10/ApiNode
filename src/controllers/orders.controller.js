@@ -1,9 +1,9 @@
 import { getConnection } from "../database/database";
 
-const getPedidos = async (req, res) => {
+const getOrders = async (req, res) => {
     try {
         const connection = await getConnection();
-        const result = await connection.query("SELECT id, Cliente, Fecha, Total, Estado FROM pedidos");
+        const result = await connection.query("SELECT id, Cliente, Fecha, Total, Estado FROM orders");
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -11,11 +11,11 @@ const getPedidos = async (req, res) => {
     }
 };
 
-const getPedido = async (req, res) => {
+const getOrder = async (req, res) => {
     try {
         const { id } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("SELECT id, Cliente, Fecha, Total, Estado FROM pedidos WHERE id = ?", id);
+        const result = await connection.query("SELECT id, Cliente, Fecha, Total, Estado FROM orders WHERE id = ?", id);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -23,21 +23,21 @@ const getPedido = async (req, res) => {
     }
 };
 
-const addPedido = async (req, res) => {
+const addOrder = async (req, res) => {
     try {
         const { Cliente, Fecha, Total, Estado } = req.body;
 
         if (Cliente == undefined || Fecha == undefined || Total == undefined || Estado == undefined) {
             res.status(400).json({ message: "Bad request. Please fill all fields." });
         }
-        const pedido = {
+        const order = {
             Cliente,
             Fecha,
             Total,
             Estado
         };
         const connection = await getConnection();
-        await connection.query("INSERT INTO pedidos SET ?", pedido);
+        await connection.query("INSERT INTO orders SET ?", order);
         res.json({ message: "Pedido agregado" });
     } catch (error) {
         res.status(500);
@@ -45,21 +45,21 @@ const addPedido = async (req, res) => {
     }
 };
 
-const updatePedido = async (req, res) => {
+const updateOrder = async (req, res) => {
     try {
         const { id } = req.params;
         const { Cliente, Fecha, Total, Estado } = req.body;
         if (Cliente == undefined || Fecha == undefined || Total == undefined || Estado == undefined) {
             res.status(400).json({ message: "Bad request. Please fill all fields." });
         }
-        const pedido = {
+        const order = {
             Cliente,
             Fecha,
             Total,
             Estado
         };
         const connection = await getConnection();
-        const result = await connection.query("UPDATE pedidos SET ? WHERE id = ?", [pedido, id]);
+        const result = await connection.query("UPDATE orders SET ? WHERE id = ?", [order, id]);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -67,11 +67,11 @@ const updatePedido = async (req, res) => {
     }
 };
 
-const deletePedido = async (req, res) => {
+const deleteOrder = async (req, res) => {
     try {
         const { id } = req.params;
         const connection = await getConnection();
-        const result = await connection.query("DELETE FROM pedidos WHERE id = ?", id);
+        const result = await connection.query("DELETE FROM orders WHERE id = ?", id);
         res.json(result);
     } catch (error) {
         res.status(500);
@@ -80,9 +80,9 @@ const deletePedido = async (req, res) => {
 };
 
 export const methods = {
-    getPedidos,
-    getPedido,
-    addPedido,
-    updatePedido,
-    deletePedido,
+    getOrders,
+    getOrder,
+    addOrder,
+    updateOrder,
+    deleteOrder,
 };
