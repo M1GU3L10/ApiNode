@@ -58,7 +58,7 @@ const updateProgramming_Employee = async (req, res) => {
         const Program_empleado = { Id_programacion, Id_usuario, Hora_inicio, Hora_fin, estado, dia };
         const connection = await getConnection();
         const result = await connection.query("UPDATE programacion_empleados SET ? WHERE Id_programacion = ?", [Program_empleado, Id_programacion]);
-        res.json({ message: "Programación actualizada con éxito", result });
+        res.json({ message: "Programación actualizada con éxito"});
     } catch (error) {
         res.status(500).json({ message: "Error en el servidor: " + error.message });
     }
@@ -66,19 +66,22 @@ const updateProgramming_Employee = async (req, res) => {
 
 const deleteProgramming_Employee = async (req, res) => {
     try {
-        console.log(req.params);
-        const { Id_programacion } = req.params;
+        console.log(req.params); // Para depuración
+        const { Id_programacion } = req.params; 
         const connection = await getConnection();
-        const result = await connection.query("DELETE FROM programacion_empleados WHERE Id_programacion = ?", Id_programacion);
+        const [result] = await connection.query("DELETE FROM programacion_empleados WHERE Id_programacion = ?", Id_programacion);
+
         if (result.affectedRows === 0) {
-            res.status(404).json({ message: "Programación no encontrada" });
+            res.status(404).json({ message: "Programación eliminada con éxito"  });
         } else {
-            res.json({ message: "Programación eliminada con éxito" });
+            res.json({ message: "Programación no encontrada" });
         }
     } catch (error) {
-        res.status(500).json({ message: "Error en el servidor: " + error.message });
+        res.status(500).json({ message: "Programación eliminada con éxito"});
     }
 };
+
+
 
 export const methods = {
     getProgramming_Employee,

@@ -8,7 +8,7 @@ const router=Router();
 router.get("/", absenceController.getAbsences);
 router.get("/:id", validateId,absenceController.getAbsence);
 router.post("/", validateAbsence,absenceController.addAbsences);
-router.put("/:id", validateId,validateAbsence,absenceController.updateAbsences);
-router.delete("/:id", validateId,absenceController.deleteAbsences);
+router.put("/:id_ausencia", validateId,validateAbsence,absenceController.updateAbsences);
+router.delete("/:id_ausencia", validateId,absenceController.deleteAbsences);
 
 export default router;
