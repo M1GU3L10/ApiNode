@@ -31,7 +31,7 @@ const addCategoria= async (req, res) =>{
         const {Nombre_categoria,estado}=req.body;
 
         if(Nombre_categoria == undefined || estado == undefined){
-            res.status(400).json({message:"Bad request. Please fill all filed"});
+            res.status(400).json({message:"Solicitud incorrecta. Por favor, complete todos los campos"});
         }
         const categoria={
             Nombre_categoria,estado
