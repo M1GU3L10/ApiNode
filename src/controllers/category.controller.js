@@ -1,6 +1,6 @@
 import {getConnection} from "../database/database"
 
-const getCategorias= async (req, res)=>{
+const getCategories= async (req, res)=>{
     try{
         const connection= await getConnection();
         const result = await connection.query("SELECT id, Nombre_categoria,estado FROM categoria_productos");
@@ -12,7 +12,7 @@ const getCategorias= async (req, res)=>{
     }
 };
 
-const getCategoria= async (req, res)=>{
+const getCategory= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -26,7 +26,7 @@ const getCategoria= async (req, res)=>{
     }
 };
 
-const addCategoria= async (req, res) =>{
+const addCategory= async (req, res) =>{
     try{
         const {Nombre_categoria,estado}=req.body;
 
@@ -46,7 +46,7 @@ const addCategoria= async (req, res) =>{
     }
 };
 
-const updateCategoria= async (req, res)=>{
+const updateCategory= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -66,7 +66,7 @@ const updateCategoria= async (req, res)=>{
     }
 };
 
-const deleteCategoria= async (req, res)=>{
+const deleteCategory= async (req, res)=>{
     try{
         console.log(req.params)
         const  {id} = req.params;
@@ -82,9 +82,9 @@ const deleteCategoria= async (req, res)=>{
 
 
 export const methods ={
-    getCategorias,
-    getCategoria,
-    addCategoria,
-    updateCategoria,
-    deleteCategoria,
+    getCategories,
+    getCategory,
+    addCategory,
+    updateCategory,
+    deleteCategory,
 };
